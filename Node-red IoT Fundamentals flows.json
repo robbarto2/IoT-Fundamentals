@@ -1,0 +1,582 @@
+[
+    {
+        "id": "999e44072d8185fd",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "13a8d887a5a75073",
+        "type": "mqtt-broker",
+        "name": "HiveMQ",
+        "broker": "broker.hivemq.com",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "5c5889be19efd0a6",
+        "type": "ui_tab",
+        "name": "Raspberry-IoT",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "4475585ecb938ed1",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "3f8b7cdc2c130812",
+        "type": "ui_group",
+        "name": "IoT-Raspberry-Group",
+        "tab": "5c5889be19efd0a6",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "9c8e696b19a5510e",
+        "type": "mqtt in",
+        "z": "999e44072d8185fd",
+        "name": "Pressure",
+        "topic": "raspberry-iot/pressure",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "13a8d887a5a75073",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 400,
+        "y": 400,
+        "wires": [
+            [
+                "801f3893e477a2b0",
+                "753a86cfabb2d7bf"
+            ]
+        ]
+    },
+    {
+        "id": "801f3893e477a2b0",
+        "type": "ui_chart",
+        "z": "999e44072d8185fd",
+        "name": "",
+        "group": "3f8b7cdc2c130812",
+        "order": 0,
+        "width": "0",
+        "height": "0",
+        "label": "Pressure Graph",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": true,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 840,
+        "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8e82ce088c571e83",
+        "type": "mqtt in",
+        "z": "999e44072d8185fd",
+        "name": "Temperature",
+        "topic": "raspberry-iot/temperature",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "13a8d887a5a75073",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 410,
+        "y": 500,
+        "wires": [
+            [
+                "504e742548c63b93"
+            ]
+        ]
+    },
+    {
+        "id": "5ef3dd9b4402a410",
+        "type": "mqtt in",
+        "z": "999e44072d8185fd",
+        "name": "Humidity",
+        "topic": "raspberry-iot/humidity",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "13a8d887a5a75073",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 400,
+        "y": 600,
+        "wires": [
+            [
+                "02ea220ce078b526"
+            ]
+        ]
+    },
+    {
+        "id": "504e742548c63b93",
+        "type": "ui_chart",
+        "z": "999e44072d8185fd",
+        "name": "Temperature",
+        "group": "3f8b7cdc2c130812",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "chart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 790,
+        "y": 580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "02ea220ce078b526",
+        "type": "ui_gauge",
+        "z": "999e44072d8185fd",
+        "name": "Humidity",
+        "group": "3f8b7cdc2c130812",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "gtype": "donut",
+        "title": "gauge",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 10,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 780,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "92186c4aa13033a8",
+        "type": "inject",
+        "z": "999e44072d8185fd",
+        "name": "Test-Inject",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "101",
+        "payloadType": "num",
+        "x": 420,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "89c8e943301f104d",
+        "type": "debug",
+        "z": "999e44072d8185fd",
+        "name": "Formatted Message",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1300,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "269e76534e8361b1",
+        "type": "function",
+        "z": "999e44072d8185fd",
+        "name": "Format Alert",
+        "func": "msg.payload = \"PRESSURE ALERT!!! Pressure is \"+msg.payload\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1270,
+        "y": 220,
+        "wires": [
+            [
+                "89c8e943301f104d"
+            ]
+        ]
+    },
+    {
+        "id": "753a86cfabb2d7bf",
+        "type": "switch",
+        "z": "999e44072d8185fd",
+        "name": "Pressure Condition Alarm",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "100",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 830,
+        "y": 280,
+        "wires": [
+            [
+                "269e76534e8361b1",
+                "bc2a66588eba3157"
+            ],
+            [
+                "89c8e943301f104d",
+                "75d2eb8973f4b18a"
+            ]
+        ]
+    },
+    {
+        "id": "a08a4184125008b2",
+        "type": "function",
+        "z": "999e44072d8185fd",
+        "name": "Format Webex Message",
+        "func": "// Set the room ID where you want to send the message\nconst roomId = 'Y2lzY29zcGFyazovL3VzL1JPT00vNGNiMjdmNTAtYWM1OC0xMWVlLWI5NTctYTc4ODk2ZDkyMTc3'; // use the room ID the message will be written to\n\n// Prepend \"Alert: \" to the incoming message\nconst alertMessage = `DANGER! PRESSURE WARNING: ${msg.payload} KPa`;\n\n// Prepare the message payload for Webex\nconst webexPayload = {\n    roomId: roomId,\n    text: alertMessage // Assuming the message payload contains the text you want to send\n};\n\n// Set the Room ID dynamically in the msg object\nmsg.roomId = roomId;\nmsg.payload = webexPayload;\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1010,
+        "y": 120,
+        "wires": [
+            [
+                "95489a4b66485448"
+            ]
+        ]
+    },
+    {
+        "id": "95489a4b66485448",
+        "type": "http request",
+        "z": "999e44072d8185fd",
+        "name": "Post Alert to Webex",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://api.ciscospark.com/v1/messages",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [
+            {
+                "keyType": "Content-Type",
+                "keyValue": "",
+                "valueType": "other",
+                "valueValue": "application/json"
+            },
+            {
+                "keyType": "Authorization",
+                "keyValue": "",
+                "valueType": "other",
+                "valueValue": "Bearer OTBhODIwNGYtMjE5Ny00ZGQyLWI3NDYtOWJlNTBkYzY1ZDk1ZTgxZmRiZjUtM2Iy_PF84_1eb65fdf-9643-417f-9974-ad72cae0e10f"
+            }
+        ],
+        "x": 1300,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bc2a66588eba3157",
+        "type": "delay",
+        "z": "999e44072d8185fd",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 770,
+        "y": 120,
+        "wires": [
+            [
+                "a08a4184125008b2"
+            ]
+        ]
+    },
+    {
+        "id": "179d4ceb4cfbf3e7",
+        "type": "function",
+        "z": "999e44072d8185fd",
+        "name": "Format Webex Message",
+        "func": "// Set the room ID where you want to send the message\nconst roomId = 'Y2lzY29zcGFyazovL3VzL1JPT00vNGNiMjdmNTAtYWM1OC0xMWVlLWI5NTctYTc4ODk2ZDkyMTc3'; // use the room ID the message will be written to\n\n// Prepend \"Alert: \" to the incoming message\nconst alertMessage = `SAFE! Pressure Normal: ${msg.payload} KPa`;\n\n// Prepare the message payload for Webex\nconst webexPayload = {\n    roomId: roomId,\n    text: alertMessage // Assuming the message payload contains the text you want to send\n};\n\n// Set the Room ID dynamically in the msg object\nmsg.roomId = roomId;\nmsg.payload = webexPayload;\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1110,
+        "y": 360,
+        "wires": [
+            [
+                "2b047f6eee33a9aa"
+            ]
+        ]
+    },
+    {
+        "id": "2b047f6eee33a9aa",
+        "type": "http request",
+        "z": "999e44072d8185fd",
+        "name": "Post Alert to Webex",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://api.ciscospark.com/v1/messages",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [
+            {
+                "keyType": "Content-Type",
+                "keyValue": "",
+                "valueType": "other",
+                "valueValue": "application/json"
+            },
+            {
+                "keyType": "Authorization",
+                "keyValue": "",
+                "valueType": "other",
+                "valueValue": "Bearer OTBhODIwNGYtMjE5Ny00ZGQyLWI3NDYtOWJlNTBkYzY1ZDk1ZTgxZmRiZjUtM2Iy_PF84_1eb65fdf-9643-417f-9974-ad72cae0e10f"
+            }
+        ],
+        "x": 1360,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "75d2eb8973f4b18a",
+        "type": "delay",
+        "z": "999e44072d8185fd",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "30",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 860,
+        "y": 360,
+        "wires": [
+            [
+                "179d4ceb4cfbf3e7"
+            ]
+        ]
+    }
+]
